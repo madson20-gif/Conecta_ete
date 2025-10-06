@@ -1,0 +1,951 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+:root {
+    --primary-color: #263a99;
+    --bkg-color: #d3d3d3;
+    --btn-color: #191970;
+    --btn-hover-color: #1b52d7;
+    --shadow-color: #2d5fff;
+    --border-radius-md: 12px;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+}
+
+body {
+    background: url("/static/img/ete-capa.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.8);
+}
+
+.split-container {
+    display: flex;
+    width: 70%;
+    height: 500px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+/* Lado esquerdo - vidro fosco (glassmorphism) */
+.left-side {
+    flex: 1.5;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #e5e5e5;
+    backdrop-filter: blur(1px);
+}
+
+.left-side h1 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.left-side h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+/* Lado direito - imagem */
+.right-side {
+    flex: 1.5;
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.right-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.right-side:hover img {
+    transform: scale(1.05);
+}
+
+.right-side::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(189, 189, 189, 0.105), rgba(0, 42, 255, 0.189));
+}
+
+/* Botões */
+.button {
+    display: inline-block;
+    text-align: center;
+    background-color: var(--btn-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.5s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.button+.button {
+    margin-top: 14px;
+}
+
+.button:hover {
+    background-color: var(--btn-hover-color);
+    transform: translateY(-3px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .right-side {
+        height: 250px;
+    }
+
+    .left-side {
+        border-radius: var(--border-radius-md);
+        border-right: none;
+    }
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Variáveis CSS (Custom Properties) - Definidas no elemento raiz para uso global */
+:root {
+    /* Cores */
+    --background-light: #f0ebe5;
+    --container-bg: white;
+    --primary-color: #263a99;
+    /* Cor principal de texto/botão (azul escuro) */
+    --secondary-text-color: #dcd0be;
+    /* Cor para textos secundários (cinza escuro) */
+    --link-color: #2d5fff;
+    /* Cor para links (azul claro) */
+    --button-hover-color: #1b52d7;
+    /* Cor do botão ao passar o mouse */
+    --border-color: #ccc;
+    /* Cor da borda dos inputs */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    /* Cor da sombra do container */
+
+    /* Espaçamentos */
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 1.5rem;
+    /* 24px */
+    --spacing-lg: 2rem;
+    /* 32px */
+
+    /* Border Radius */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+
+    /* Font Sizes */
+    --font-size-sm: 0.9rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 1.8rem;
+}
+
+
+/* Centraliza tudo na tela */
+body {
+    background-color: var(--background-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Use min-height para permitir que o conteúdo empurre o body se necessário */
+    padding: var(--spacing-sm);
+    /* Adiciona um pequeno padding para telas muito pequenas */
+}
+
+/* Container principal do formulário */
+.container {
+    background: var(--container-bg);
+    padding: var(--spacing-lg);
+    /* 2rem = 32px */
+    border-radius: var(--border-radius-md);
+    /* 12px */
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Título do formulário (Login) */
+h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    /* 1.5rem = 24px */
+    font-size: var(--font-size-lg);
+    /* 1.5rem = 24px */
+    color: var(--primary-color);
+}
+
+/* Estilo para os campos de input de texto, email e senha */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    /* Top/Bottom: 10px, Left/Right: 12px */
+    margin-bottom: var(--spacing-sm);
+    /* 1rem = 16px */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    /* 8px */
+    font-size: var(--font-size-md);
+    /* 1rem = 16px */
+    box-sizing: border-box;
+    /* Garante que padding e border sejam incluídos na largura */
+}
+
+/* Container para o campo de senha e ícone */
+.senha-container {
+    position: relative;
+    display: flex;
+    /* Para alinhar o input e o ícone se houver outros elementos */
+    align-items: center;
+    /* Alinha verticalmente os itens */
+    margin-bottom: var(--spacing-sm);
+    /* Espaçamento abaixo do container de senha */
+}
+
+.senha-container input {
+    width: 100%;
+    padding-right: 40px;
+    /* Espaço para o ícone */
+    /* As outras propriedades de input já são aplicadas pelo seletor geral de inputs */
+}
+
+/* Estilo para o ícone de mostrar/esconder senha */
+.icone-senha {
+    position: absolute;
+    right: 12px;
+    top: 40%;
+    transform: translateY(-50%);
+    /* Centraliza verticalmente */
+    color: var(--link-color);
+    cursor: pointer;
+    font-size: 1.125rem;
+    /* 18px */
+}
+
+/* Botão de Entrar */
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1rem;
+    /* Aumentei um pouco o padding para botões */
+    font-size: var(--font-size-md);
+    /* 1rem = 16px */
+    border: none;
+    border-radius: var(--border-radius-sm);
+    /* 8px */
+    cursor: pointer;
+    width: 100%;
+    margin-top: var(--spacing-sm);
+    /* 1rem = 16px */
+    transition: background 0.2s ease;
+    display: block;
+    /* Garante que o botão ocupe sua própria linha */
+    text-align: center;
+    /* Centraliza o texto do botão */
+    text-decoration: none;
+    /* Remove sublinhado se for um <a> com classe button */
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Link "Esqueceu a senha?" */
+.senha-link {
+    display: block;
+    text-align: center;
+    margin-top: var(--spacing-sm);
+    /* 1rem = 16px */
+    font-size: var(--font-size-sm);
+    /* 0.9rem = 14.4px */
+    color: var(--link-color);
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+}
+
+.senha-link:hover {
+    text-decoration: underline;
+}
+
+/* Classe para elementos visualmente ocultos (para acessibilidade) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .right-side {
+        height: 250px;
+    }
+
+    .left-side {
+        border-radius: var(--border-radius-md);
+        border-right: none;
+    }
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Variáveis CSS (Custom Properties) - Definidas no elemento raiz para uso global */
+:root {
+    /* Cores */
+    --background-light: #f8f8ff;
+    /* Usado na tela inicial/login */
+    --background-feed: #f4f4f4;
+    /* Cor de fundo específica para o feed */
+    --container-bg: white;
+    --primary-color: #191970;
+    /* Cor principal de texto/botão (azul escuro) */
+    --secondary-text-color: #555;
+    /* Cor para textos secundários (cinza escuro) */
+    --link-color: #007bff;
+    /* Cor para links (azul claro) */
+    --button-hover-color: #0056b3;
+    /* Cor do botão ao passar o mouse */
+    --border-color: #ccc;
+    /* Cor da borda dos inputs */
+    --shadow-color-light: rgba(0, 0, 0, 0.1);
+    /* Sombra mais forte para containers principais */
+    --shadow-color-card: rgba(0, 0, 0, 0.05);
+    /* Sombra mais leve para cards */
+    --text-color-dark: #333;
+    /* Cor para texto principal em cards */
+    --text-color-light: #999;
+    /* Cor para textos menores/secundários */
+
+    /* Espaçamentos */
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 1.5rem;
+    /* 24px */
+    --spacing-lg: 2rem;
+    /* 32px */
+    --spacing-xl: 3rem;
+    /* 48px */
+
+    /* Border Radius */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 15px;
+    /* Para cards de postagem */
+    --border-radius-circle: 50%;
+
+    /* Font Sizes */
+    --font-size-xs: 0.8rem;
+    /* 12.8px */
+    --font-size-sm: 0.95rem;
+    /* 15.2px (para textos de parágrafo) */
+    --font-size-md: 1rem;
+    /* 16px */
+    --font-size-lg: 1.4rem;
+    /* 22.4px (para títulos de header) */
+    --font-size-xl: 1.5rem;
+    /* 24px (para botão nova postagem) */
+}
+
+body {
+    background-color: var(--background-feed);
+    /* Usando a nova variável de fundo */
+    padding: var(--spacing-sm);
+    /* 1rem (16px) */
+    min-height: 100vh;
+    /* Para permitir rolagem se o conteúdo for grande */
+}
+
+/* Container principal do feed */
+.feed-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-xs);
+    /* Pequeno padding interno para evitar grudar nas bordas em mobile */
+}
+
+/* Cabeçalho do feed */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    /* 1.5rem = 24px */
+    padding: var(--spacing-sm) 0;
+    /* Padding vertical para espaçamento do header */
+    border-bottom: 1px solid #eee;
+    /* Linha sutil para separar o header */
+}
+
+header h2 {
+    font-size: var(--font-size-lg);
+    /* 1.4rem = 22.4px */
+    color: var(--primary-color);
+}
+
+/* Botão de nova postagem */
+#novaPostagem {
+    background-color: var(--link-color);
+    /* Usando a cor de link para o botão + */
+    color: var(--container-bg);
+    /* Cor branca para o texto/ícone */
+    border: none;
+    font-size: var(--font-size-xl);
+    /* 1.5rem = 24px */
+    padding: 0.4rem 1rem;
+    border-radius: var(--border-radius-circle);
+    /* 50% para um círculo perfeito */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    /* Transição suave para o hover */
+    display: flex;
+    /* Para centralizar o '+' visualmente */
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    /* Garante que seja um círculo se padding variar */
+    width: 40px;
+}
+
+#novaPostagem:hover {
+    background-color: var(--button-hover-color);
+    /* Cor de hover consistente */
+}
+
+/* Estilo dos cards de postagem */
+.postagem {
+    background-color: var(--container-bg);
+    /* Fundo branco */
+    padding: var(--spacing-sm);
+    /* 1rem = 16px */
+    border-radius: var(--border-radius-lg);
+    /* 15px */
+    margin-bottom: var(--spacing-sm);
+    /* 1rem = 16px */
+    box-shadow: 0 0 8px var(--shadow-color-card);
+    /* Sombra leve */
+}
+
+.postagem h3 {
+    font-size: 1.1rem;
+    /* Mantido em rem, pode ser uma variável se for comum */
+    margin-bottom: 0.3rem;
+    color: var(--primary-color);
+    /* Cor para títulos de postagem */
+}
+
+.postagem p {
+    color: var(--text-color-dark);
+    /* #333 */
+    font-size: var(--font-size-sm);
+    /* 0.95rem */
+    line-height: 1.5;
+    /* Melhorar legibilidade de parágrafos */
+}
+
+.postagem .hora {
+    margin-top: var(--spacing-xs);
+    /* 0.5rem = 8px */
+    font-size: var(--font-size-xs);
+    /* 0.8rem = 12.8px */
+    color: var(--text-color-light);
+    /* #999 */
+}
+
+/* Opcional: Estilos para mensagens de carregamento/sem posts, se você adicionar no HTML */
+.loading-message,
+.no-posts-message {
+    text-align: center;
+    color: var(--secondary-text-color);
+    margin-top: var(--spacing-xl);
+    font-size: var(--font-size-md);
+}
+
+/* No seu feed.css, adicione estilos para o botão de exclusão e o rodapé do card */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-xs);
+    /* Espaçamento entre conteúdo e rodapé */
+}
+
+.delete-post {
+    background-color: transparent;
+    /* Sem fundo */
+    border: none;
+    color: #dc3545;
+    /* Cor vermelha para indicar exclusão */
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    transition: color 0.2s ease;
+}
+
+.delete-post:hover {
+    color: #c82333;
+    /* Vermelho mais escuro no hover */
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Variáveis CSS (Custom Properties) - Definidas no elemento raiz para uso global */
+:root {
+    /* Cores */
+    --background-light: #f8f8ff;
+    --container-bg: white;
+    --primary-color: #191970;
+    /* Cor principal de texto/botão (azul escuro) */
+    --secondary-text-color: #555;
+    /* Cor para textos secundários (cinza escuro) */
+    --link-color: #007bff;
+    /* Cor para links (azul claro) */
+    --button-hover-color: #0056b3;
+    /* Cor do botão ao passar o mouse */
+    --border-color: #ccc;
+    /* Cor da borda dos inputs */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    /* Cor da sombra do container */
+
+    /* Espaçamentos */
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 1.5rem;
+    /* 24px */
+    --spacing-lg: 2rem;
+    /* 32px */
+
+    /* Border Radius */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+
+    /* Font Sizes */
+    --font-size-sm: 0.9rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 1.8rem;
+}
+
+/* Centraliza tudo na tela */
+body {
+    background-color: var(--background-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Use min-height para permitir que o conteúdo empurre o body se necessário */
+    padding: var(--spacing-sm);
+    /* Adiciona um pequeno padding para telas muito pequenas */
+}
+
+/* Container principal do formulário */
+.container {
+    background: var(--container-bg);
+    padding: var(--spacing-lg);
+    /* 2rem = 32px */
+    border-radius: var(--border-radius-md);
+    /* 12px */
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Título do formulário (Cadastre-se) */
+h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    /* 1.5rem = 24px */
+    font-size: var(--font-size-lg);
+    /* 1.5rem = 24px */
+    color: var(--primary-color);
+}
+
+/* Estilo para os campos de input de texto, email e senha */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    /* Top/Bottom: 10px, Left/Right: 12px */
+    margin-bottom: var(--spacing-sm);
+    /* 1rem = 16px */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    /* 8px */
+    font-size: var(--font-size-md);
+    /* 1rem = 16px */
+    box-sizing: border-box;
+    /* Garante que padding e border sejam incluídos na largura */
+}
+
+/* Container para o campo de senha e ícone */
+.senha-container {
+    position: relative;
+    display: flex;
+    /* Para alinhar o input e o ícone se houver outros elementos */
+    align-items: center;
+    /* Alinha verticalmente os itens */
+    margin-bottom: var(--spacing-sm);
+    /* Espaçamento abaixo do container de senha */
+}
+
+.senha-container input {
+    width: 100%;
+    padding-right: 40px;
+    /* Espaço para o ícone */
+    /* As outras propriedades de input já são aplicadas pelo seletor geral de inputs */
+}
+
+/* Estilo para o ícone de mostrar/esconder senha */
+.icone-senha {
+    position: absolute;
+    right: 12px;
+    top: 40%;
+    /* Ajustado de 40% para 50% para centralização perfeita */
+    transform: translateY(-50%);
+    /* Centraliza verticalmente */
+    color: var(--link-color);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    /* 1rem = 16px, para consistência com outras fontes */
+}
+
+/* Estilo para o Checkbox e seu Label */
+form label {
+    /* Aplica-se ao label que envolve o checkbox e seu texto */
+    display: flex;
+    align-items: flex-start;
+    /* Ajustado para alinhar o texto com o topo do checkbox */
+    font-size: var(--font-size-sm);
+    /* 0.9rem */
+    margin-bottom: var(--spacing-sm);
+    /* 1rem */
+    color: var(--secondary-text-color);
+    line-height: 1.4;
+    /* Melhora a leitura do texto */
+}
+
+input[type="checkbox"] {
+    margin-right: var(--spacing-xs);
+    /* 0.5rem = 8px */
+    /* Você pode adicionar mais estilos de checkbox aqui se quiser customizar a aparência */
+    flex-shrink: 0;
+    /* Impede que o checkbox encolha */
+    margin-top: var(--spacing-sm);
+    /* Pequeno ajuste para alinhar o checkbox com o texto */
+}
+
+/* Botão de Concluir Cadastro */
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1rem;
+    /* Aumentei um pouco o padding para botões */
+    font-size: var(--font-size-md);
+    /* 1rem = 16px */
+    border: none;
+    border-radius: var(--border-radius-sm);
+    /* 8px */
+    cursor: pointer;
+    width: 100%;
+    margin-top: var(--spacing-sm);
+    /* 1rem = 16px */
+    transition: background 0.2s ease;
+    display: block;
+    /* Garante que o botão ocupe sua própria linha */
+    text-align: center;
+    /* Centraliza o texto do botão */
+    text-decoration: none;
+    /* Remove sublinhado se for um <a> com classe button */
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Classe para elementos visualmente ocultos (para acessibilidade) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+footer {
+    background: #f8f9fa;
+    text-align: center;
+    padding: 10px;
+}
+
+main {
+    flex: 1;
+    /* empurra o footer para baixo */
+}
+
+
+
+/* Navbar */
+.navbar {
+    background-color: #0033A0 !important;
+    /* azul */
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar .nav-link:hover {
+    color: #FFD100 !important;
+    /* amarelo */
+}
+
+/* Footer */
+footer {
+    background-color: #0033A0;
+    /* verde */
+    color: #fff;
+}
+
+footer a {
+    color: #FFD100;
+    /* amarelo */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #D62828;
+    /* vermelho */
+}
+
+/* Botões personalizados */
+.btn-primary {
+    background-color: #D62828;
+    /* vermelho */
+    border-color: #D62828;
+}
+
+.btn-primary:hover {
+    background-color: #FFD100;
+    /* amarelo */
+    border-color: #FFD100;
+    color: #0033A0;
+}
+
+.feed-card {
+    background: rgba(255, 255, 255, 0.15);
+    /* translúcido */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+#novaPostagem {
+    background-color: #D62828;
+    /* vermelho da bandeira */
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+header h2 {
+    margin: 0;
+}
+
+/* Card translúcido centralizado */
+.cadastro-card {
+    max-width: 400px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    /* translúcido */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+/* Inputs e botão */
+.form-control {
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: #eee;
+}
+
+.btn-primary {
+    background-color: #D62828;
+    /* vermelho da bandeira */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #FFD100;
+    /* amarelo */
+    color: #0033A0;
+    /* azul */
+}
+
+/* Ícone de senha */
+.senha-container {
+    position: relative;
+}
+
+.icone-senha {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Checkbox labels */
+.form-check-label {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* Card de login centralizado */
+.login-card {
+    max-width: 400px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    /* translúcido */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+/* Inputs */
+.form-control {
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: #eee;
+}
+
+/* Botão */
+.btn-primary {
+    background-color: #D62828;
+    /* vermelho da bandeira */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #FFD100;
+    /* amarelo */
+    color: #0033A0;
+    /* azul */
+}
+
+/* Ícone de senha */
+.senha-container {
+    position: relative;
+}
+
+.icone-senha {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Link “Esqueceu a senha” */
+.senha-link {
+    color: #FFD100;
+    text-decoration: none;
+}
+
+.senha-link:hover {
+    color: #D62828;
+}
