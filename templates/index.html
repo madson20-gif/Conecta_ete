@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/style.css">
-    <title>ETE+</title>
-</head>
+{% block content %}
 
-<body>
-    <div class="split-container">
-        <div class="left-side">
-            <h1>ETE+</h1>
-            <h2>Bem-vindo(a)!</h2>
-            <a href="{{url_for('login')}}" class="button">Login</a>
-            <a href="{{url_for('cadastro')}}" class="button">Cadastre-se</a>
-        </div>
+<div class="d-flex justify-content-center align-items-center mt-5 pt-5">
+    <div class="login-card p-4">
+        <h2 class="text-center mb-4">Bem vindo</h2>
 
-        <div class="right-side">
-            <img src="static/img/ete-capa.jpeg" alt="Imagem Decorativa">
-        </div>
+        <form id="loginForm" class="d-flex gap-3">
+            <a href="{{ url_for('login') }}" class="btn btn-primary flex-fill">Já sou Aluno</a>
+            <a href="{{ url_for('cadastro') }}" class="btn btn-secondary flex-fill">Quero cadastrar</a>
+        </form>
     </div>
+</div>
 
-    <script src="script.js"></script>
-</body>
 
-</html>
+<script src="script.js"></script>
+
+{% endblock %}
